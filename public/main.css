@@ -1,0 +1,151 @@
+/* Variables de color */
+:root {
+    --primary-color: #2a9d8f;
+    --secondary-color: #e9c46a;
+    --text-color: #264653;
+    --background-color: #f4f4f9;
+    --input-background: #ffffff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+  
+  .subtitle {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  
+  main {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  section {
+    background-color: var(--input-background);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  input[type="text"],
+  input[type="file"],
+  button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+  }
+  
+  input[type="text"],
+  input[type="file"] {
+    background-color: var(--input-background);
+    color: var(--text-color);
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  #results-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .person-result {
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .person-result img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .new-search-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .new-search-btn:hover {
+    background-color: var(--secondary-color);
+  }
+
+  input[type="text"],
+input[type="file"],
+select,
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+select {
+  background-color: var(--input-background);
+  color: var(--text-color);
+}
+
+  

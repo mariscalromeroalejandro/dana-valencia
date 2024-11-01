@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Familiares y Amigos - Dana Valencia</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <header>
+    <h1>Buscar Familiares y Amigos</h1>
+    <p class="subtitle">Dana Valencia</p>
+  </header>
+
+  <main>
+    <section id="search-section">
+      <h2>Buscar Persona</h2>
+      <div class="input-group">
+        <input type="text" id="search-name" placeholder="Nombre o Apellido">
+        <button onclick="searchPerson()">🔍 Buscar</button>
+      </div>
+    </section>
+
+    <section id="register-section">
+        <h2>Registrar Persona Desaparecida</h2>
+        <form id="register-form" enctype="multipart/form-data">
+          <label for="name">Nombre y Apellidos</label>
+          <input type="text" id="name" name="name" required>
+          
+          <label for="contact">Datos de Contacto</label>
+          <input type="text" id="contact" name="contact" required>
+          
+          <label for="photo">Foto</label>
+          <input type="file" id="photo" name="photo" accept="image/*" required>
+          
+          <label for="location">Ubicación (Ciudad, Municipio, Calle, Zona)</label>
+          <input type="text" id="location" name="location" required>
+          
+          <label for="status">Estado</label>
+          <select id="status" name="status" required>
+            <option value="">Seleccione un estado</option>
+            <option value="con_vida">Con Vida</option>
+            <option value="sin_vida">Sin Vida</option>
+            <option value="en_hospital">En Hospital</option>
+            <option value="desconocido">Desconocido</option>
+          </select>
+          
+          <button type="submit">Registrar</button>
+        </form>
+      </section>
+      
+
+    <section id="results-section" style="display: none;">
+      <h2>Resultados de la Búsqueda</h2>
+      <div id="results"></div>
+      <button onclick="newSearch()" class="new-search-btn">🔄 Nueva Búsqueda</button>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
