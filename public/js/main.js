@@ -17,7 +17,9 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
       console.error("Error al registrar:", error);
       alert("Ocurrió un error al registrar a la persona.");
     }
-  });
+});
+  
+
   
   
   
@@ -36,12 +38,21 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         results.forEach(person => {
           const personDiv = document.createElement("div");
           personDiv.classList.add("person-result");
+          personDiv.id = `person-${person.id}`;
   
           personDiv.innerHTML = `
-            <p><strong>Nombre:</strong> ${person.nombre}</p>
-            <p><strong>Contacto:</strong> ${person.contacto}</p>
-            <img src="/uploads/${person.foto}" alt="Foto de ${person.nombre}" style="width:100px; height:auto;">
-          `;
+          <p><strong>Nombre:</strong> ${person.nombre}</p>
+          <p><strong>Contacto:</strong> ${person.contacto}</p>
+          ${person.foto ? 
+              `<img src="/uploads/${person.foto}" alt="Foto de ${person.nombre}" style="width:100px; height:auto;">` 
+            : ''}
+          <p><strong>Ubicación:</strong> ${person.ubicacion ?? "No especificado"}</p>
+          <p><strong>Estado:</strong> ${capitalizeFirstLetter(person.estado.replace(/_/g, ' '))}</p>
+              <button onclick="localizarPersona(${person.id})">Marcar como localizada</button>
+
+
+      `;
+      
   
           resultsContainer.appendChild(personDiv);
         });
@@ -68,6 +79,39 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
     document.getElementById("search-section").style.display = "block";
     document.getElementById("results-section").style.display = "none";
   }
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  async function localizarPersona(personId) {
+    try {
+        const response = await fetch(`/person/${personId}`, {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+          // Eliminar el elemento del DOM o recargar la lista
+          const personElement = document.getElementById(`person-${personId}`);
+          if (personElement) {
+            personElement.remove();
+          }
+
+          alert('Persona marcada como localizada.');
+          
+
+        } else {
+            const errorData = await response.json();
+            alert(errorData.message);
+        }
+    } catch (error) {
+        console.error('Error al eliminar la persona:', error);
+        alert('Error al marcar la persona como localizada.');
+    }
+}
+
+
+  
   
   
   

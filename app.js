@@ -2,9 +2,11 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const mysql = require('mysql2');
+require('dotenv').config();
+
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const storage = multer.diskStorage({
   destination: './uploads/',
@@ -22,10 +24,10 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'amariscalr',
-  password: 'mypassword',
-  database: 'dana_valencia'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
 
 db.connect((err) => {
@@ -43,6 +45,23 @@ app.get('/search', (req, res) => {
         return res.status(500).json({ message: 'Error al buscar personas.' });
       }
       res.json(results);
+    });
+});
+
+//delete person
+app.delete('/person/:id', (req, res) => {
+    const id = req.params.id;
+  
+    const sql = "DELETE FROM personas_desaparecidas WHERE id = ?";
+    db.query(sql, [id], (err, result) => {
+      if (err) {
+        console.error("Error al borrar en la base de datos:", err);
+        return res.status(500).json({ message: 'Error al borrar la persona.' });
+      }
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ message: 'Persona no encontrada.' });
+      }
+      res.json({ message: 'Persona borrada con exito.' });
     });
   });
   

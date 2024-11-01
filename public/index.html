@@ -24,25 +24,26 @@
     <section id="register-section">
         <h2>Registrar Persona Desaparecida</h2>
         <form id="register-form" enctype="multipart/form-data">
-          <label for="name">Nombre y Apellidos</label>
+          <label for="name">Nombre y Apellidos *</label>
           <input type="text" id="name" name="name" required>
           
-          <label for="contact">Datos de Contacto</label>
+          <label for="contact">Datos de Contacto*</label>
           <input type="text" id="contact" name="contact" required>
           
           <label for="photo">Foto</label>
-          <input type="file" id="photo" name="photo" accept="image/*" required>
+          <input type="file" id="photo" name="photo" accept="image/*">
           
           <label for="location">Ubicación (Ciudad, Municipio, Calle, Zona)</label>
-          <input type="text" id="location" name="location" required>
+          <input type="text" id="location" name="location">
           
-          <label for="status">Estado</label>
+          
+          <label for="status">Estado *</label>
           <select id="status" name="status" required>
             <option value="">Seleccione un estado</option>
             <option value="con_vida">Con Vida</option>
             <option value="sin_vida">Sin Vida</option>
             <option value="en_hospital">En Hospital</option>
-            <option value="desconocido">Desconocido</option>
+            <option value="desconocido" selected>Desconocido</option>
           </select>
           
           <button type="submit">Registrar</button>
@@ -57,6 +58,6 @@
     </section>
   </main>
 
-  <script src="main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
