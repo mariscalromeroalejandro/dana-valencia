@@ -62,8 +62,7 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
                 <div class="details">
                     <p><strong>Nombre:</strong> ${person.nombre}</p>
                     <p><strong>Contacto:</strong> ${person.contacto}</p>
-                    <p><strong>Ubicación:</strong> ${person.ubicacion ?? "No especificado"}</p>
-                    <p><strong>Estado:</strong> ${capitalizeFirstLetter(person.estado.replace(/_/g, ' '))}</p>
+                    <p><strong>Última vez visto:</strong> ${person.ubicacion ?? "No especificado"}</p>
                 </div>
             </div>
             <button class="locate-button" onclick="localizarPersona(${person.id})">Marcar como localizada</button>
@@ -110,7 +109,13 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  async function localizarPersona(personId) {
+async function localizarPersona(personId) {
+  const confirmation = confirm("¿Estás seguro de que la persona ha sido localizada? Si es asi, la persona ya no aparecerá en la búsqueda.");
+
+  if (!confirmation) {
+    return;
+  }
+  
     try {
         const response = await fetch(`/person/${personId}`, {
             method: 'DELETE',

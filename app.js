@@ -68,7 +68,7 @@ app.delete('/person/:id', (req, res) => {
 
 
   app.post("/register", upload.single("photo"), (req, res) => {
-    const { name, contact, location, status } = req.body;
+    const { name, contact, location, status = "desconocido" } = req.body;
     const photo = req.file ? req.file.filename : null;
   
     const sql = "INSERT INTO personas_desaparecidas (nombre, contacto, ubicacion, estado, foto) VALUES (?, ?, ?, ?, ?)";

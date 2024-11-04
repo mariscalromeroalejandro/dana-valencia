@@ -63,17 +63,16 @@
             </label>
             <input type="text" id="location" name="location">
 
-            <label for="status">
-                Estado *
-                <button type="button" class="info-btn" onclick="showTooltip(event, 'Selecciona el estado actual de la persona si se conoce')">ℹ️</button>
-            </label>
-            <select id="status" name="status" required>
-                <option value="">Seleccione un estado</option>
-                <option value="con_vida">Con Vida</option>
-                <option value="sin_vida">Sin Vida</option>
-                <option value="en_hospital">En Hospital</option>
-                <option value="desconocido" selected>Desconocido</option>
-            </select>
+            <div style="display: none;">
+                <label for="status">
+                    Estado *
+                    <button type="button" class="info-btn" onclick="showTooltip(event, 'Selecciona el estado actual de la persona si se conoce')">ℹ️</button>
+                </label>
+                <select id="status" name="status" required>
+                    <option value="">Seleccione un estado</option>
+                    <option value="desconocido" selected>Desconocido</option>
+                </select>
+            </div>
 
             <div>
                 <input type="checkbox" id="accept-terms" name="accept-terms" required>
@@ -93,7 +92,7 @@
             </div>
             <div class="faq-item">
               <h3>2. ¿Qué información es necesaria para realizar un registro?</h3>
-              <p>Se requiere el nombre completo y los datos de contacto. También puede añadir una ubicación y estado actual de la persona.</p>
+              <p>Se requiere el nombre completo y los datos de contacto. También puede añadir una ubicación.</p>
             </div>
             <div class="faq-item">
               <h3>3. ¿Cómo puedo buscar a alguien por su nombre y apellido?</h3>
@@ -111,13 +110,9 @@
               <h3>6. ¿Cómo marco a una persona como localizada?</h3>
               <p>En los resultados de búsqueda, haga clic en "Marcar como localizada" junto al nombre de la persona.</p>
             </div>
-            <div class="faq-item">
-              <h3>7. ¿Qué significa el campo "Estado" en el formulario de registro?</h3>
-              <p>El campo "Estado" indica la última información conocida sobre la persona, como si está "Con Vida", "Sin Vida", "En Hospital" o "Desconocido".</p>
-            </div>
       
             <div class="faq-item">
-              <h3>. ¿Qué hago si no encuentro a la persona que estoy buscando?</h3>
+              <h3>8. ¿Qué hago si no encuentro a la persona que estoy buscando?</h3>
               <p>Si no aparece en la búsqueda, intente con diferentes variaciones del nombre. Si sigue sin éxito, puede registrar a la persona.</p>
             </div>
             <div class="faq-item">
