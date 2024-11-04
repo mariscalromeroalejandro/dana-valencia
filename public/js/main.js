@@ -1,3 +1,8 @@
+// Selecciona el botón y la sección de registro
+const showRegisterBtn = document.getElementById("show-register-btn");
+const registerSection = document.getElementById("register-form");
+
+
 document.getElementById("register-form").addEventListener("submit", async (e) => {
     e.preventDefault();
   
@@ -78,6 +83,11 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
     // Mostrar la sección de búsqueda y ocultar los resultados
     document.getElementById("search-section").style.display = "block";
     document.getElementById("results-section").style.display = "none";
+
+    // Ocultar formulario de registro
+    registerSection.style.display = "none";
+    showRegisterBtn.style.display = "block";
+
   }
 
   function capitalizeFirstLetter(string) {
@@ -140,6 +150,9 @@ function showTooltip(event, text) {
   });
 }
 
-  
-  
-  
+
+// Agrega el evento para mostrar la sección de registro
+showRegisterBtn.addEventListener("click", () => {
+  registerSection.style.display = "block"; // Muestra la sección de registro
+  showRegisterBtn.style.display = "none"; // Oculta el botón después de activarlo
+});

@@ -24,12 +24,20 @@
         <button onclick="searchPerson()">🔍 Buscar</button>
       </div>
     </section>
+    <section id="results-section" style="display: none;">
+      <h2>Resultados de la Búsqueda</h2>
+      <div id="results"></div>
+      <button onclick="newSearch()" class="new-search-btn">🔄 Nueva Búsqueda</button>
+    </section>
+    
 
-
-
-
+    
+    
+    
+    
     <section id="register-section">
       <h2>Registrar Persona Desaparecida</h2>
+      <button id="show-register-btn" style="margin-top: 3px;">Registrar Persona</button>
       <form id="register-form" enctype="multipart/form-data">
         
         <label for="name">
@@ -74,11 +82,7 @@
     </section>
     
 
-    <section id="results-section" style="display: none;">
-      <h2>Resultados de la Búsqueda</h2>
-      <div id="results"></div>
-      <button onclick="newSearch()" class="new-search-btn">🔄 Nueva Búsqueda</button>
-    </section>
+
   </main>
 
   <section id="faq-section">

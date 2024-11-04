@@ -8,13 +8,16 @@ body {
   color: #333;
 }
 
+/* Encabezado */
 header {
-  background: #007BFF; /* Color de fondo del encabezado */
+  background: #007BFF;
   color: white;
   padding: 20px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Subtítulo */
 .subtitle {
   font-size: 1.2rem;
   margin: 10px 0;
@@ -36,78 +39,107 @@ h2 {
 h3 {
   font-size: 1.5rem;
   margin-top: 15px;
+  color: #555;
 }
 
-/* Estilos de botones */
+/* Botones */
 .btn-map {
   display: inline-block;
-  background: #28a745; /* Color del botón */
+  background: #28a745;
   color: white;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 20px; /* Bordes redondeados */
   text-decoration: none;
   font-size: 1rem;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn-map:hover {
-  background: #218838; /* Color al pasar el mouse */
+  background: #218838;
 }
 
-/* Estilos para botones con íconos */
+/* Botones de información */
 .info-btn {
-  background: transparent; /* Sin fondo */
-  border: none; /* Sin borde */
-  color: #007BFF; /* Color del ícono */
+  background: transparent;
+  border: none;
+  color: #007BFF;
   cursor: pointer;
-  font-size: 1rem; /* Tamaño de fuente para el ícono */
-  margin-left: 5px; /* Espaciado a la izquierda */
+  font-size: 1rem;
+  margin-left: 5px;
+  padding: 0;
 }
 
-.info-btn:hover {
-  color: #0056b3; /* Color del ícono al pasar el mouse */
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 1000;
 }
 
-/* Estilos para las secciones */
+.tooltip.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Secciones */
 main {
   padding: 20px;
+  max-width: 800px;
+  margin: 20px auto; /* Margen para separación */
+  border-radius: 15px; /* Bordes redondeados para el contenedor principal */
+  background: white; /* Fondo blanco */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
-/* Estilos para formularios */
+/* Formulario */
 input[type="text"], input[type="file"], textarea, select {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px; /* Bordes redondeados */
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, textarea:focus, select:focus {
+  border-color: #007BFF;
 }
 
 button[type="submit"], button {
-  background: #007BFF; /* Color del botón */
+  background: #007BFF;
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 10px; /* Bordes redondeados */
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-button[type="submit"]:hover, button:hover {
-  background: #0056b3; /* Color al pasar el mouse */
+button[type="submit"]:hover {
+  background: #0056b3;
 }
 
-/* Estilos para las FAQ */
+/* FAQ */
 .faq-item {
   background: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10px; /* Bordes redondeados */
   padding: 15px;
   margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos del footer */
+/* Footer */
 footer {
-  background: #333; /* Color de fondo del footer */
+  background: #333;
   color: white;
   padding: 20px;
   text-align: center;
@@ -126,10 +158,158 @@ footer {
 }
 
 textarea {
-  resize: none; /* Evitar que se pueda cambiar el tamaño del textarea */
+  resize: none;
 }
 
 .footer-note {
   margin-top: 20px;
   font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .btn-map {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 10px;
+    margin: 10px; /* Margen para dispositivos móviles */
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .contact-info, .feedback {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .btn-map {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  input[type="text"], input[type="file"], textarea, select, button[type="submit"], button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  footer {
+    padding: 15px;
+    font-size: 0.8rem;
+  }
+}
+
+#register-form {
+  display: none; /* Oculta la sección de registro por defecto */
+}
+
+footer {
+  background: #333;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-info, .feedback {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.contact-info h3, .feedback h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #f4f4f4;
+}
+
+.contact-info p, .feedback p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.feedback form {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback textarea {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 10px;
+  border-radius: 10px; /* Bordes redondeados */
+  margin-bottom: 10px;
+}
+
+.feedback button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.feedback button:hover {
+  background: #218838;
+}
+
+.footer-note {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 20px;
+}
+
+/* Estilos responsive */
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .contact-info, .feedback {
+    text-align: left;
+    margin: 0 10px;
+  }
 }
