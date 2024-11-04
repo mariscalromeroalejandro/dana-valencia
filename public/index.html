@@ -5,14 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DANA Valencia</title>
   <link rel="stylesheet" href="main.css">
+  <link rel="icon" href="favicon" type="image/png">
+  <!-- css de leaflet  -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 </head>
 <body>
   <header>
     <h1>DANA Valencia</h1>
-    <p class="subtitle">La página web está diseñada para ayudar a las personas a buscar y registrar familiares o amigos desaparecidos tras la tormenta Dana en Valencia. Su propósito principal es crear un espacio de colaboración y apoyo para localizar a personas que no han sido contactadas o encontradas en medio de la emergencia.</p>
+    <p class="subtitle">La página web está diseñada para ayudar a las personas a buscar y registrar familiares o amigos desaparecidos tras la tormenta DANA en Valencia. Su propósito principal es crear un espacio de colaboración y apoyo para localizar a personas que no han sido contactadas o encontradas durante de la emergencia.</p>
         <!-- Botón para redirigir a la página del mapa -->
 <div style="text-align: center; margin: 20px 0;">
-  <a href="/mapa" class="btn-map">Ver Sitios de Recogida</a>
+  <a href="/mapa" class="btn-map">Mapa de recogida de alimentos y material</a>
   <!-- boton para redirigir a la sección de telefonos de contacto -->
   <a href="/emergency" class="btn-map">Contactos de Emergencia</a>
 </div>
@@ -22,7 +27,7 @@
     <section id="search-section">
       <h2>Buscar Persona</h2>
       <div class="input-group">
-        <input type="text" id="search-name" placeholder="Nombre o Apellido">
+        <input type="text" id="search-name" placeholder="nombre y apellido">
         <button onclick="searchPerson()">🔍 Buscar</button>
       </div>
     </section>
@@ -95,11 +100,11 @@
           </div>
       <div class="faq-item">
         <h3>2. ¿Qué información es necesaria para realizar un registro?</h3>
-        <p>Se requiere el nombre completo y los datos de contacto. También puede añadir una foto, ubicación y estado actual de la persona.</p>
+        <p>Se requiere el nombre completo y los datos de contacto. También puede añadir una ubicación y estado actual de la persona.</p>
       </div>
       <div class="faq-item">
-        <h3>3. ¿Cómo puedo buscar a alguien por su nombre o apellido?</h3>
-        <p>Escriba el nombre o apellido en la barra de búsqueda de la sección "Buscar Persona" y presione el botón de búsqueda.</p>
+        <h3>3. ¿Cómo puedo buscar a alguien por su nombre y apellido?</h3>
+        <p>Escriba el nombre y apellido en la barra de búsqueda de la sección "Buscar Persona" y presione el botón de búsqueda.</p>
       </div>
       <div class="faq-item">
         <h3>4. ¿Qué debo incluir en los datos de contacto?</h3>
@@ -117,16 +122,13 @@
         <h3>7. ¿Qué significa el campo "Estado" en el formulario de registro?</h3>
         <p>El campo "Estado" indica la última información conocida sobre la persona, como si está "Con Vida", "Sin Vida", "En Hospital" o "Desconocido".</p>
       </div>
+
       <div class="faq-item">
-        <h3>8. ¿Cómo puedo adjuntar una foto en el registro?</h3>
-        <p>Utilice el botón "Foto" en el formulario de registro para seleccionar una imagen desde su dispositivo.</p>
-      </div>
-      <div class="faq-item">
-        <h3>9. ¿Qué hago si no encuentro a la persona que estoy buscando?</h3>
+        <h3>. ¿Qué hago si no encuentro a la persona que estoy buscando?</h3>
         <p>Si no aparece en la búsqueda, intente con diferentes variaciones del nombre. Si sigue sin éxito, puede registrar a la persona.</p>
       </div>
       <div class="faq-item">
-        <h3>10. ¿Cómo puedo contactar con el equipo de soporte de esta página?</h3>
+        <h3>9. ¿Cómo puedo contactar con el equipo de soporte de esta página?</h3>
         <p>Diríjase a la sección de contacto en el footer para obtener información y opciones para enviar comentarios.</p>
       </div>
     </section>
@@ -139,7 +141,7 @@
     <div class="footer-content">
       <div class="contact-info">
         <h3>Contacto</h3>
-        <p>Email: <a href="mailto:contacto@danavalencia.org">mariscalromeroalejandro@gmail.com</a></p>
+        <p>Email: <a href="mailto:contacto@dana-valencia.online">contacto@dana-valencia.online</a></p>
         <p>Teléfono: +34 673753805</p>
       </div>
       <div class="feedback">
@@ -151,7 +153,7 @@
         </form>
       </div>
     </div>
-    <p class="footer-note">© 2024 Dana Valencia - Todos los derechos reservados.</p>
+    <p class="footer-note">© 2024 DANA Valencia - Todos los derechos reservados.</p>
   </footer>
 
   
