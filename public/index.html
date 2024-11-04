@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buscar Familiares y Amigos - Dana Valencia</title>
+  <title>DANA Valencia</title>
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
   <header>
-    <h1>Buscar Familiares y Amigos</h1>
+    <h1>DANA Valencia</h1>
     <p class="subtitle">La página web está diseñada para ayudar a las personas a buscar y registrar familiares o amigos desaparecidos tras la tormenta Dana en Valencia. Su propósito principal es crear un espacio de colaboración y apoyo para localizar a personas que no han sido contactadas o encontradas en medio de la emergencia.</p>
         <!-- Botón para redirigir a la página del mapa -->
 <div style="text-align: center; margin: 20px 0;">
-  <a href="/mapa" class="btn-map">Ver Sitios de Recogida en Valencia</a>
+  <a href="/mapa" class="btn-map">Ver Sitios de Recogida</a>
+  <!-- boton para redirigir a la sección de telefonos de contacto -->
+  <a href="/emergency" class="btn-map">Contactos de Emergencia</a>
 </div>
   </header>
 
@@ -83,51 +85,53 @@
     
 
 
+    <section id="faq-section">
+      <h2>Preguntas Frecuentes (FAQ)</h2>
+      <button id="toggle-faq-btn" onclick="toggleFAQ()">Mostrar FAQ</button>
+      <div id="faq-content" style="display: none;">
+          <div class="faq-item">
+              <h3>1. ¿Cómo puedo registrar a una persona desaparecida?</h3>
+              <p>Para registrar a una persona, complete el formulario en la sección "Registrar Persona Desaparecida" con toda la información relevante y presione "Registrar".</p>
+          </div>
+      <div class="faq-item">
+        <h3>2. ¿Qué información es necesaria para realizar un registro?</h3>
+        <p>Se requiere el nombre completo y los datos de contacto. También puede añadir una foto, ubicación y estado actual de la persona.</p>
+      </div>
+      <div class="faq-item">
+        <h3>3. ¿Cómo puedo buscar a alguien por su nombre o apellido?</h3>
+        <p>Escriba el nombre o apellido en la barra de búsqueda de la sección "Buscar Persona" y presione el botón de búsqueda.</p>
+      </div>
+      <div class="faq-item">
+        <h3>4. ¿Qué debo incluir en los datos de contacto?</h3>
+        <p>Incluya un número de teléfono, dirección de correo electrónico o cualquier información que permita a otros ponerse en contacto con usted.</p>
+      </div>
+      <div class="faq-item">
+        <h3>5. ¿Cómo puedo actualizar la información de una persona registrada?</h3>
+        <p>Actualmente, no se permite actualizar registros. Puede eliminar el registro y volver a crear uno nuevo.</p>
+      </div>
+      <div class="faq-item">
+        <h3>6. ¿Cómo marco a una persona como localizada?</h3>
+        <p>En los resultados de búsqueda, haga clic en "Marcar como localizada" junto al nombre de la persona.</p>
+      </div>
+      <div class="faq-item">
+        <h3>7. ¿Qué significa el campo "Estado" en el formulario de registro?</h3>
+        <p>El campo "Estado" indica la última información conocida sobre la persona, como si está "Con Vida", "Sin Vida", "En Hospital" o "Desconocido".</p>
+      </div>
+      <div class="faq-item">
+        <h3>8. ¿Cómo puedo adjuntar una foto en el registro?</h3>
+        <p>Utilice el botón "Foto" en el formulario de registro para seleccionar una imagen desde su dispositivo.</p>
+      </div>
+      <div class="faq-item">
+        <h3>9. ¿Qué hago si no encuentro a la persona que estoy buscando?</h3>
+        <p>Si no aparece en la búsqueda, intente con diferentes variaciones del nombre. Si sigue sin éxito, puede registrar a la persona.</p>
+      </div>
+      <div class="faq-item">
+        <h3>10. ¿Cómo puedo contactar con el equipo de soporte de esta página?</h3>
+        <p>Diríjase a la sección de contacto en el footer para obtener información y opciones para enviar comentarios.</p>
+      </div>
+    </section>
   </main>
 
-  <section id="faq-section">
-    <h2>Preguntas Frecuentes (FAQ)</h2>
-    <div class="faq-item">
-      <h3>1. ¿Cómo puedo registrar a una persona desaparecida?</h3>
-      <p>Para registrar a una persona, complete el formulario en la sección "Registrar Persona Desaparecida" con toda la información relevante y presione "Registrar".</p>
-    </div>
-    <div class="faq-item">
-      <h3>2. ¿Qué información es necesaria para realizar un registro?</h3>
-      <p>Se requiere el nombre completo y los datos de contacto. También puede añadir una foto, ubicación y estado actual de la persona.</p>
-    </div>
-    <div class="faq-item">
-      <h3>3. ¿Cómo puedo buscar a alguien por su nombre o apellido?</h3>
-      <p>Escriba el nombre o apellido en la barra de búsqueda de la sección "Buscar Persona" y presione el botón de búsqueda.</p>
-    </div>
-    <div class="faq-item">
-      <h3>4. ¿Qué debo incluir en los datos de contacto?</h3>
-      <p>Incluya un número de teléfono, dirección de correo electrónico o cualquier información que permita a otros ponerse en contacto con usted.</p>
-    </div>
-    <div class="faq-item">
-      <h3>5. ¿Cómo puedo actualizar la información de una persona registrada?</h3>
-      <p>Actualmente, no se permite actualizar registros. Puede eliminar el registro y volver a crear uno nuevo.</p>
-    </div>
-    <div class="faq-item">
-      <h3>6. ¿Cómo marco a una persona como localizada?</h3>
-      <p>En los resultados de búsqueda, haga clic en "Marcar como localizada" junto al nombre de la persona.</p>
-    </div>
-    <div class="faq-item">
-      <h3>7. ¿Qué significa el campo "Estado" en el formulario de registro?</h3>
-      <p>El campo "Estado" indica la última información conocida sobre la persona, como si está "Con Vida", "Sin Vida", "En Hospital" o "Desconocido".</p>
-    </div>
-    <div class="faq-item">
-      <h3>8. ¿Cómo puedo adjuntar una foto en el registro?</h3>
-      <p>Utilice el botón "Foto" en el formulario de registro para seleccionar una imagen desde su dispositivo.</p>
-    </div>
-    <div class="faq-item">
-      <h3>9. ¿Qué hago si no encuentro a la persona que estoy buscando?</h3>
-      <p>Si no aparece en la búsqueda, intente con diferentes variaciones del nombre. Si sigue sin éxito, puede registrar a la persona.</p>
-    </div>
-    <div class="faq-item">
-      <h3>10. ¿Cómo puedo contactar con el equipo de soporte de esta página?</h3>
-      <p>Diríjase a la sección de contacto en el footer para obtener información y opciones para enviar comentarios.</p>
-    </div>
-  </section>
   
 
   <!-- Footer -->

@@ -32,6 +32,10 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
     const name = document.getElementById("search-name").value;
   
     try {
+              // Ocultar formulario de registro
+              registerSection.style.display = "none";
+              showRegisterBtn.style.display = "block";
+      
       const response = await fetch(`/search?name=${encodeURIComponent(name)}`);
       const results = await response.json();
   
@@ -46,17 +50,19 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
           personDiv.id = `person-${person.id}`;
   
           personDiv.innerHTML = `
-          <p><strong>Nombre:</strong> ${person.nombre}</p>
-          <p><strong>Contacto:</strong> ${person.contacto}</p>
-          ${person.foto ? 
-              `<img src="/uploads/${person.foto}" alt="Foto de ${person.nombre}" style="width:100px; height:auto;">` 
-            : ''}
-          <p><strong>Ubicación:</strong> ${person.ubicacion ?? "No especificado"}</p>
-          <p><strong>Estado:</strong> ${capitalizeFirstLetter(person.estado.replace(/_/g, ' '))}</p>
-              <button onclick="localizarPersona(${person.id})">Marcar como localizada</button>
-
-
-      `;
+            <div class="person-info">
+                ${person.foto ? 
+                    `<img src="/uploads/${person.foto}" alt="Foto de ${person.nombre}" class="person-photo">` 
+                    : '<div class="placeholder-photo"></div>'}
+                <div class="details">
+                    <p><strong>Nombre:</strong> ${person.nombre}</p>
+                    <p><strong>Contacto:</strong> ${person.contacto}</p>
+                    <p><strong>Ubicación:</strong> ${person.ubicacion ?? "No especificado"}</p>
+                    <p><strong>Estado:</strong> ${capitalizeFirstLetter(person.estado.replace(/_/g, ' '))}</p>
+                </div>
+            </div>
+            <button class="locate-button" onclick="localizarPersona(${person.id})">Marcar como localizada</button>
+        `;
       
   
           resultsContainer.appendChild(personDiv);
@@ -65,6 +71,7 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
         // Mostrar la sección de resultados y ocultar la sección de búsqueda
         document.getElementById("search-section").style.display = "none";
         document.getElementById("results-section").style.display = "block";
+
       } else {
         resultsContainer.innerHTML = "<p>No se encontraron resultados.</p>";
         document.getElementById("results-section").style.display = "block";
@@ -87,6 +94,10 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
     // Ocultar formulario de registro
     registerSection.style.display = "none";
     showRegisterBtn.style.display = "block";
+
+    //focus en el campo de búsqueda
+    document.getElementById("search-name").focus();
+
 
   }
 
@@ -156,3 +167,16 @@ showRegisterBtn.addEventListener("click", () => {
   registerSection.style.display = "block"; // Muestra la sección de registro
   showRegisterBtn.style.display = "none"; // Oculta el botón después de activarlo
 });
+
+function toggleFAQ() {
+  const faqContent = document.getElementById('faq-content');
+  const toggleButton = document.getElementById('toggle-faq-btn');
+
+  if (faqContent.style.display === 'none') {
+      faqContent.style.display = 'block';
+      toggleButton.textContent = 'Ocultar FAQ'; // Cambia el texto del botón
+  } else {
+      faqContent.style.display = 'none';
+      toggleButton.textContent = 'Mostrar FAQ'; // Cambia el texto del botón
+  }
+}

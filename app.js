@@ -89,6 +89,10 @@ app.get('/mapa', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/pages', 'map.html'));
 });
 
+app.get('/emergency', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/pages', 'emergency.html'));
+})
+
   
 
 app.listen(PORT, () => {
