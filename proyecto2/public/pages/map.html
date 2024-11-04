@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo | Dana Valencia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="../styles.css" rel="stylesheet">
+    <style>
+        #map {
+            height: 500px; /* Ajusta la altura del mapa */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Contenedor Principal -->
+<div class="container mt-5">
+<!-- back home a la izquierda -->
+<div class="mb-4">
+    <a href="/" class="btn btn-primary">Volver al Inicio</a>
+</div>
+
+    <div class="text-center">
+        <h1 class="mb-3 display-4">Mapa de Centros de Recogida</h1>
+        <p class="lead text-muted">Añade chinchetas a las ubicaciones de centros de recogida de material y alimentos.</p>
+    </div>
+
+    <!-- Mapa -->
+    <div id="map" class="mb-4"></div>
+
+    <!-- Formulario para añadir chinchetas -->
+    <div class="mb-4">
+        <h5>Añadir Chincheta</h5>
+        <form id="markerForm">
+            <div class="mb-3">
+                <label for="markerName" class="form-label">Nombre del Centro</label>
+                <input type="text" class="form-control" id="markerName" required>
+            </div>
+            <div class="mb-3">
+                <label for="markerDesc" class="form-label">Descripción</label>
+                <textarea class="form-control" id="markerDesc" rows="3" required></textarea>
+            </div>
+            <input type="hidden" id="markerLat">
+            <input type="hidden" id="markerLng">
+            <button type="submit" class="btn btn-primary">Añadir Chincheta</button>
+        </form>
+    </div>
+</div>
+
+<!-- Footer Moderno -->
+<footer class="bg-dark text-white py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center">© 2024 Dana Valencia. Todos los derechos reservados.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="./terms.html" class="text-white">Términos y Condiciones</a></li>
+                    <li class="list-inline-item"><a href="./privacy.html" class="text-white">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Inicializar el mapa
+    var map = L.map('map').setView([39.4668, -0.3768], 12); // Coordenadas de Valencia
+
+    // Añadir la capa de mapa
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Variable para almacenar el marcador
+    var marker;
+
+    // Evento para añadir chincheta en el mapa
+    map.on('click', function(e) {
+        // Guardar las coordenadas del clic
+        document.getElementById('markerLat').value = e.latlng.lat;
+        document.getElementById('markerLng').value = e.latlng.lng;
+
+        // Si hay un marcador existente, lo eliminamos
+        if (marker) {
+            map.removeLayer(marker);
+        }
+
+        // Añadir un nuevo marcador en la ubicación clicada
+        marker = L.marker(e.latlng).addTo(map);
+    });
+
+    // Manejar el envío del formulario
+    document.getElementById('markerForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+
+        var name = document.getElementById('markerName').value;
+        var desc = document.getElementById('markerDesc').value;
+
+        // Añadir el popup con el nombre y la descripción
+        marker.bindPopup('<strong>' + name + '</strong><br>' + desc).openPopup();
+
+        // Limpiar el formulario
+        this.reset();
+    });
+</script>
+</body>
+</html>
