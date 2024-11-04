@@ -215,6 +215,7 @@ textarea {
   }
 
   .btn-map {
+    margin-top: 8px;
     padding: 8px 12px;
     font-size: 0.85rem;
   }
