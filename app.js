@@ -93,6 +93,15 @@ app.get('/emergency', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/pages', 'emergency.html'));
 })
 
+app.get('/cookies', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/pages', 'cookies.html'));
+});
+
+// /politica
+app.get('/politica', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/pages', 'politica.html'));
+});
+
   
 
 app.listen(PORT, () => {

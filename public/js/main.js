@@ -2,6 +2,9 @@
 const showRegisterBtn = document.getElementById("show-register-btn");
 const registerSection = document.getElementById("register-form");
 
+if (!localStorage.getItem('cookiesAccepted')) {
+  window.location.href = '/cookies';
+}
 
 document.getElementById("register-form").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -182,3 +185,5 @@ function toggleFAQ() {
       toggleButton.textContent = 'Mostrar FAQ'; // Cambia el texto del botón
   }
 }
+
+
