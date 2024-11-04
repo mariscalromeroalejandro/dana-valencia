@@ -1,192 +1,135 @@
-/* Reinicio de estilo básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Estilos generales */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
   line-height: 1.6;
-  height: 100vh; /* Ocupa toda la altura de la ventana */
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-/* Encabezado */
 header {
-  background-color: #4A90E2;
+  background: #007BFF; /* Color de fondo del encabezado */
   color: white;
+  padding: 20px;
   text-align: center;
-  padding: 20px 0;
-  margin-bottom: 20px; /* Espacio debajo del encabezado */
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+h1, h2, h3 {
+  margin: 0;
 }
 
 h1 {
   font-size: 2.5rem;
 }
 
-.subtitle {
-  font-size: 1.2rem;
-}
-
-/* Sección principal */
-main {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-/* Estilos de las secciones */
-section {
-  padding: 20px;
-  margin-bottom: 20px; /* Espacio entre secciones */
-  border-radius: 8px; /* Bordes redondeados */
-}
-
-/* Estilos específicos para cada sección */
-#search-section {
-  background-color: #eaf4fc; /* Color de fondo para la sección de búsqueda */
-  border: 1px solid #4A90E2; /* Borde del mismo color que el encabezado */
-}
-
-#register-section {
-  background-color: #e8f5e9; /* Color de fondo para la sección de registro */
-  border: 1px solid #43a047; /* Borde para distinguir esta sección */
-}
-
-#results-section {
-  background-color: #e8f5e9; /* Color de fondo para la sección de resultados */
-  border: 1px solid #43a047; /* Borde para esta sección */
-}
-
-/* Estilos de los formularios */
-.input-group {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.input-group input[type="text"],
-.input-group select {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
-  font-size: 1rem;
-}
-
-.input-group button {
-  padding: 10px 15px;
-  background-color: #4A90E2;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.input-group button:hover {
-  background-color: #357ABD;
-}
-
-/* Estilos del formulario de registro */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-form label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-form input[type="file"] {
-  margin-top: 10px;
-}
-
-/* Botón de registrar */
-button[type="submit"] {
-  padding: 10px;
-  background-color: #5cb85c; /* Color de fondo del botón */
-  color: white; /* Color del texto */
-  border: none; /* Sin borde */
-  border-radius: 4px; /* Bordes redondeados */
-  cursor: pointer; /* Cambia el cursor al pasar por encima */
-  font-size: 1rem; /* Tamaño de fuente */
-  transition: background-color 0.3s; /* Transición suave */
-  margin-top: 1%;
-  width: 20%;
-}
-
-button[type="submit"]:hover {
-  background-color: #4cae4c; /* Color de fondo al pasar el ratón */
-}
-
-/* Sección de resultados */
-#results-section {
+h2 {
+  font-size: 2rem;
   margin-top: 20px;
 }
 
-.person-result {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 15px;
-  background: #f9f9f9;
+h3 {
+  font-size: 1.5rem;
+  margin-top: 15px;
 }
 
-.person-result p {
-  margin: 5px 0;
-}
-
-.person-result img {
-  border-radius: 4px;
-  margin-top: 10px;
-  max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
-}
-
-.new-search-btn {
-  margin-top: 10px;
-  background-color: #5cb85c;
+/* Estilos de botones */
+.btn-map {
+  display: inline-block;
+  background: #28a745; /* Color del botón */
   color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-map:hover {
+  background: #218838; /* Color al pasar el mouse */
+}
+
+/* Estilos para botones con íconos */
+.info-btn {
+  background: transparent; /* Sin fondo */
+  border: none; /* Sin borde */
+  color: #007BFF; /* Color del ícono */
   cursor: pointer;
+  font-size: 1rem; /* Tamaño de fuente para el ícono */
+  margin-left: 5px; /* Espaciado a la izquierda */
 }
 
-.new-search-btn:hover {
-  background-color: #4cae4c;
+.info-btn:hover {
+  color: #0056b3; /* Color del ícono al pasar el mouse */
 }
 
-/* Estilos responsivos */
-@media (max-width: 600px) {
-  h1 {
-      font-size: 2rem; /* Reduce el tamaño de la fuente en pantallas pequeñas */
-  }
+/* Estilos para las secciones */
+main {
+  padding: 20px;
+}
 
-  .subtitle {
-      font-size: 1rem;
-  }
+/* Estilos para formularios */
+input[type="text"], input[type="file"], textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-  .input-group {
-      flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-  }
+button[type="submit"], button {
+  background: #007BFF; /* Color del botón */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-  .input-group input[type="text"],
-  .input-group select {
-      margin-right: 0;
-      margin-bottom: 10px; /* Espaciado entre campos de entrada */
-  }
+button[type="submit"]:hover, button:hover {
+  background: #0056b3; /* Color al pasar el mouse */
+}
 
-  main {
-      margin: 10px; /* Margen reducido en pantallas pequeñas */
-  }
+/* Estilos para las FAQ */
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+/* Estilos del footer */
+footer {
+  background: #333; /* Color de fondo del footer */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contact-info, .feedback {
+  flex: 1;
+  margin: 10px;
+}
+
+textarea {
+  resize: none; /* Evitar que se pueda cambiar el tamaño del textarea */
+}
+
+.footer-note {
+  margin-top: 20px;
+  font-size: 0.9rem;
 }

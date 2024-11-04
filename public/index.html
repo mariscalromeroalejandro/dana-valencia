@@ -9,7 +9,11 @@
 <body>
   <header>
     <h1>Buscar Familiares y Amigos</h1>
-    <p class="subtitle">Dana Valencia</p>
+    <p class="subtitle">La página web está diseñada para ayudar a las personas a buscar y registrar familiares o amigos desaparecidos tras la tormenta Dana en Valencia. Su propósito principal es crear un espacio de colaboración y apoyo para localizar a personas que no han sido contactadas o encontradas en medio de la emergencia.</p>
+        <!-- Botón para redirigir a la página del mapa -->
+<div style="text-align: center; margin: 20px 0;">
+  <a href="/mapa" class="btn-map">Ver Sitios de Recogida en Valencia</a>
+</div>
   </header>
 
   <main>
@@ -21,35 +25,54 @@
       </div>
     </section>
 
+
+
+
     <section id="register-section">
-        <h2>Registrar Persona Desaparecida</h2>
-        <form id="register-form" enctype="multipart/form-data">
-          <label for="name">Nombre y Apellidos *</label>
-          <input type="text" id="name" name="name" required>
-          
-          <label for="contact">Datos de Contacto*</label>
-          <input type="text" id="contact" name="contact" required>
-          
-          <label for="photo">Foto</label>
-          <input type="file" id="photo" name="photo" accept="image/*">
-          
-          <label for="location">Ubicación (Ciudad, Municipio, Calle, Zona)</label>
-          <input type="text" id="location" name="location">
-          
-          
-          <label for="status">Estado *</label>
-          <select id="status" name="status" required>
-            <option value="">Seleccione un estado</option>
-            <option value="con_vida">Con Vida</option>
-            <option value="sin_vida">Sin Vida</option>
-            <option value="en_hospital">En Hospital</option>
-            <option value="desconocido" selected>Desconocido</option>
-          </select>
-          
-          <button type="submit">Registrar</button>
-        </form>
-      </section>
-      
+      <h2>Registrar Persona Desaparecida</h2>
+      <form id="register-form" enctype="multipart/form-data">
+        
+        <label for="name">
+          Nombre y Apellidos *
+          <button type="button" class="info-btn" onclick="showTooltip(event, 'Nombre completo de la persona desaparecida')">ℹ️</button>
+        </label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="contact">
+          Datos de Contacto *
+          <button type="button" class="info-btn" onclick="showTooltip(event, 'Introduce el teléfono, email u otra información de contacto relevante')">ℹ️</button>
+        </label>
+        <textarea id="contact" name="contact" rows="4" required></textarea>
+        
+        
+        <label for="photo">
+          Foto
+          <button type="button" class="info-btn" onclick="showTooltip(event, 'Sube una foto reciente de la persona, en formato JPEG o PNG')">ℹ️</button>
+        </label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+        
+        <label for="location">
+          Ubicación (Ciudad, Municipio, Calle, Zona)
+          <button type="button" class="info-btn" onclick="showTooltip(event, 'Última ubicación conocida de la persona')">ℹ️</button>
+        </label>
+        <input type="text" id="location" name="location">
+        
+        <label for="status">
+          Estado *
+          <button type="button" class="info-btn" onclick="showTooltip(event, 'Selecciona el estado actual de la persona si se conoce')">ℹ️</button>
+        </label>
+        <select id="status" name="status" required>
+          <option value="">Seleccione un estado</option>
+          <option value="con_vida">Con Vida</option>
+          <option value="sin_vida">Sin Vida</option>
+          <option value="en_hospital">En Hospital</option>
+          <option value="desconocido" selected>Desconocido</option>
+        </select>
+        
+        <button type="submit">Registrar</button>
+      </form>
+    </section>
+    
 
     <section id="results-section" style="display: none;">
       <h2>Resultados de la Búsqueda</h2>
@@ -57,6 +80,71 @@
       <button onclick="newSearch()" class="new-search-btn">🔄 Nueva Búsqueda</button>
     </section>
   </main>
+
+  <section id="faq-section">
+    <h2>Preguntas Frecuentes (FAQ)</h2>
+    <div class="faq-item">
+      <h3>1. ¿Cómo puedo registrar a una persona desaparecida?</h3>
+      <p>Para registrar a una persona, complete el formulario en la sección "Registrar Persona Desaparecida" con toda la información relevante y presione "Registrar".</p>
+    </div>
+    <div class="faq-item">
+      <h3>2. ¿Qué información es necesaria para realizar un registro?</h3>
+      <p>Se requiere el nombre completo y los datos de contacto. También puede añadir una foto, ubicación y estado actual de la persona.</p>
+    </div>
+    <div class="faq-item">
+      <h3>3. ¿Cómo puedo buscar a alguien por su nombre o apellido?</h3>
+      <p>Escriba el nombre o apellido en la barra de búsqueda de la sección "Buscar Persona" y presione el botón de búsqueda.</p>
+    </div>
+    <div class="faq-item">
+      <h3>4. ¿Qué debo incluir en los datos de contacto?</h3>
+      <p>Incluya un número de teléfono, dirección de correo electrónico o cualquier información que permita a otros ponerse en contacto con usted.</p>
+    </div>
+    <div class="faq-item">
+      <h3>5. ¿Cómo puedo actualizar la información de una persona registrada?</h3>
+      <p>Actualmente, no se permite actualizar registros. Puede eliminar el registro y volver a crear uno nuevo.</p>
+    </div>
+    <div class="faq-item">
+      <h3>6. ¿Cómo marco a una persona como localizada?</h3>
+      <p>En los resultados de búsqueda, haga clic en "Marcar como localizada" junto al nombre de la persona.</p>
+    </div>
+    <div class="faq-item">
+      <h3>7. ¿Qué significa el campo "Estado" en el formulario de registro?</h3>
+      <p>El campo "Estado" indica la última información conocida sobre la persona, como si está "Con Vida", "Sin Vida", "En Hospital" o "Desconocido".</p>
+    </div>
+    <div class="faq-item">
+      <h3>8. ¿Cómo puedo adjuntar una foto en el registro?</h3>
+      <p>Utilice el botón "Foto" en el formulario de registro para seleccionar una imagen desde su dispositivo.</p>
+    </div>
+    <div class="faq-item">
+      <h3>9. ¿Qué hago si no encuentro a la persona que estoy buscando?</h3>
+      <p>Si no aparece en la búsqueda, intente con diferentes variaciones del nombre. Si sigue sin éxito, puede registrar a la persona.</p>
+    </div>
+    <div class="faq-item">
+      <h3>10. ¿Cómo puedo contactar con el equipo de soporte de esta página?</h3>
+      <p>Diríjase a la sección de contacto en el footer para obtener información y opciones para enviar comentarios.</p>
+    </div>
+  </section>
+  
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="contact-info">
+        <h3>Contacto</h3>
+        <p>Email: <a href="mailto:contacto@danavalencia.org">mariscalromeroalejandro@gmail.com</a></p>
+        <p>Teléfono: +34 673753805</p>
+      </div>
+      <div class="feedback">
+        <h3>Comentarios</h3>
+        <p>¿Tienes alguna sugerencia? ¡Envíanos tus comentarios!</p>
+        <form id="feedback-form">
+          <textarea placeholder="Escribe tus comentarios aquí..." rows="3"></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+    <p class="footer-note">© 2024 Dana Valencia - Todos los derechos reservados.</p>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>

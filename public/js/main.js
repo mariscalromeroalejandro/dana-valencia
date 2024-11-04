@@ -112,6 +112,34 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
 
 
   
+function showTooltip(event, text) {
+  // Elimina cualquier tooltip existente
+  document.querySelectorAll('.tooltip').forEach(tip => tip.remove());
+
+  // Crear un nuevo tooltip
+  const tooltip = document.createElement('div');
+  tooltip.classList.add('tooltip');
+  tooltip.textContent = text;
+
+  document.body.appendChild(tooltip);
+
+  // Posiciona el tooltip cerca del botón
+  const rect = event.target.getBoundingClientRect();
+  tooltip.style.top = `${rect.top + window.scrollY - tooltip.offsetHeight / 2}px`;
+  tooltip.style.left = `${rect.right + 10}px`;
+
+  // Hace visible el tooltip
+  setTimeout(() => tooltip.classList.add('visible'), 10);
+
+  // Oculta el tooltip al hacer clic en cualquier otro lugar
+  document.addEventListener('click', function hideTooltip(e) {
+    if (!tooltip.contains(e.target) && e.target !== event.target) {
+      tooltip.remove();
+      document.removeEventListener('click', hideTooltip);
+    }
+  });
+}
+
   
   
   

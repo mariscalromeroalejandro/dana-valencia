@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo</title>
+    <link rel="stylesheet" href="../pages/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mapa Interactivo</h1>
+            <p>Explora los lugares marcados en el mapa y encuentra sitios de recogida de alimentos, ropa y material en Valencia.</p>
+            <a href="/" id="back-button">
+                <button>Volver a la Página Principal</button>
+            </a>
+            
+        </header>
+        <main>
+            <section id="update-section">
+                <h2>Actualización del Mapa</h2>
+                <p>Este mapa se irá actualizando conforme se vayan conociendo nuevos puntos de recogida. Si conoces algún lugar que no aparece en el mapa, no dudes en sugerirlo a través del formulario más abajo.</p>
+            </section>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1kk222mxLGKI02M4Ww7SuccS_LyfyQpg&ehbc=2E312F"
+                        width="640" height="480" allowfullscreen></iframe>
+            </div>
+            
+            <section id="info-section">
+                <h2>Instrucciones para Usar el Mapa</h2>
+                <p>Utiliza el mapa interactivo para localizar puntos de recogida cercanos. Haz clic en los marcadores para obtener más información sobre cada lugar.</p>
+                
+            </section>
+
+            <section id="suggestion-section">
+                <h2>Sugerencias de Sitios</h2>
+                <p>Si conoces lugares que no están en el mapa, por favor, sugiérelos usando el siguiente formulario:</p>
+                <form action="mailto:mariscalromeroalejandro@gmail.com" method="post" enctype="text/plain">
+                    <label for="site-name">Nombre del sitio:</label><br>
+                    <input type="text" id="site-name" name="site-name" required><br><br>
+
+                    <label for="site-address">Dirección del sitio:</label><br>
+                    <input type="text" id="site-address" name="site-address" required><br><br>
+
+                    <label for="site-description">Descripción del sitio:</label><br>
+                    <textarea id="site-description" name="site-description" rows="4" required></textarea><br><br>
+
+                    <input type="submit" value="Enviar Sugerencia">
+                </form>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Tu Nombre. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>

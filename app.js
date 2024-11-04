@@ -83,6 +83,12 @@ app.delete('/person/:id', (req, res) => {
       }
     });
   });
+
+  // Ruta para la página del mapa de Valencia
+app.get('/mapa', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/pages', 'map.html'));
+});
+
   
 
 app.listen(PORT, () => {
