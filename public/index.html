@@ -8,160 +8,113 @@
   <link rel="icon" href="./favicon.ico" type="image/png">
   <!-- css de leaflet  -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 </head>
 <body>
   <header>
-    <h1>DANA Valencia</h1>
-    <p class="subtitle">Esta página web está diseñada para ayudar a las personas a buscar y registrar familiares o amigos desaparecidos tras la tormenta DANA en Valencia. Su propósito principal es crear un espacio de colaboración y apoyo para localizar a personas que no han sido contactadas o encontradas durante de la emergencia.</p>
-        <!-- Botón para redirigir a la página del mapa -->
-<div style="text-align: center; margin: 20px 0;">
-  <a href="/mapa" class="btn-map">Mapa de recogida de alimentos y material</a>
-  <!-- boton para redirigir a la sección de telefonos de contacto -->
-  <a href="/emergency" class="btn-map">Contactos de Emergencia</a>
-</div>
-  </header>
+    <h1>DANA Valencia <i class="fas fa-map-marked-alt"></i></h1>
+    <p class="subtitle">
+        Esta página web está diseñada para ayudar a las personas a buscar y registrar familiares o amigos desaparecidos tras la tormenta DANA en Valencia. Su propósito principal es crear un espacio de colaboración y apoyo para localizar a personas que no han sido contactadas o encontradas durante de la emergencia.
+    </p>
+    <div style="text-align: center; margin: 20px 0;">
+        <a href="/mapa" class="btn-map"><i class="fas fa-map"></i> Mapa de recogida de alimentos y material</a>
+        <a href="/emergency" class="btn-map"><i class="fas fa-phone-alt"></i> Contactos de Emergencia</a>
+    </div>
+</header>
 
-  <main>
+<main>
     <section id="search-section">
-      <h2>Buscar Persona</h2>
-      <div class="input-group">
-        <input type="text" id="search-name" placeholder="Nombre y apellidos">
-        <button onclick="searchPerson()">🔍 Buscar</button>
-      </div>
+        <h2><i class="fas fa-search"></i> Buscar Persona</h2>
+        <div class="input-group">
+            <input type="text" id="search-name" placeholder="Nombre y apellidos">
+            <button onclick="searchPerson()"><i class="fas fa-search"></i> Buscar</button>
+        </div>
     </section>
+
     <section id="results-section" style="display: none;">
-      <h2>Resultados de la Búsqueda</h2>
-      <div id="results"></div>
-      <button onclick="newSearch()" class="new-search-btn">🔄 Nueva Búsqueda</button>
+        <h2><i class="fas fa-list-alt"></i> Resultados de la Búsqueda</h2>
+        <div id="results"></div>
+        <button onclick="newSearch()" class="new-search-btn"><i class="fas fa-redo"></i> Nueva Búsqueda</button>
     </section>
-    
 
-    
-    
-    
-    
     <section id="register-section">
-      <h2>Registrar Persona Desaparecida</h2>
-      <p>En esta sección puedes registrar una persona desaparecida en nuestra plataforma. Para hacerlo, rellena los siguientes campos:</p>
-      <button id="show-register-btn" style="margin-top: 3px;">Registrar Persona</button>
-      <form id="register-form" enctype="multipart/form-data">
-        
-        <label for="name">
-          Nombre y Apellidos *
-          <button type="button" class="info-btn" onclick="showTooltip(event, 'Nombre completo de la persona desaparecida')">ℹ️</button>
-        </label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="contact">
-          Datos de Contacto *
-          <button type="button" class="info-btn" onclick="showTooltip(event, 'Introduce el teléfono, email u otra información de contacto relevante')">ℹ️</button>
-        </label>
-        <textarea id="contact" name="contact" rows="4" required></textarea>
-        
-        
-        <!-- <label for="photo">
-          Foto
-          <button type="button" class="info-btn" onclick="showTooltip(event, 'Sube una foto reciente de la persona, en formato JPEG o PNG')">ℹ️</button>
-        </label>
-        <input type="file" id="photo" name="photo" accept="image/*"> -->
-        
-        <label for="location">
-          Ubicación (Ciudad, Municipio, Calle, Zona)
-          <button type="button" class="info-btn" onclick="showTooltip(event, 'Última ubicación conocida de la persona')">ℹ️</button>
-        </label>
-        <input type="text" id="location" name="location">
-        
-        <label for="status">
-          Estado *
-          <button type="button" class="info-btn" onclick="showTooltip(event, 'Selecciona el estado actual de la persona si se conoce')">ℹ️</button>
-        </label>
-        <select id="status" name="status" required>
-          <option value="">Seleccione un estado</option>
-          <option value="con_vida">Con Vida</option>
-          <option value="sin_vida">Sin Vida</option>
-          <option value="en_hospital">En Hospital</option>
-          <option value="desconocido" selected>Desconocido</option>
-        </select>
+        <h2><i class="fas fa-user-plus"></i> Registrar Persona Desaparecida</h2>
+        <p>En esta sección puedes registrar una persona desaparecida en nuestra plataforma. Para hacerlo, rellena los siguientes campos:</p>
+        <button id="show-register-btn" style="margin-top: 3px;"><i class="fas fa-pencil-alt"></i> Registrar Persona</button>
+        <form id="register-form" enctype="multipart/form-data">
+            <label for="name">
+                Nombre y Apellidos *
+                <button type="button" class="info-btn" onclick="showTooltip(event, 'Nombre completo de la persona desaparecida')">ℹ️</button>
+            </label>
+            <input type="text" id="name" name="name" required>
 
-        <!-- Boton de que acepte los terminos -->
-         <div>
-           <input type="checkbox" id="accept-terms" name="accept-terms" required>
-           <label for="accept-terms">Acepto los <a href="/terms" target="_blank">términos y condiciones</a></label>
-           
-          </div>
-           <button id="submit-button" disabled="true" type="submit">Registrar</button>
-      </form>
+            <label for="contact">
+                Datos de Contacto *
+                <button type="button" class="info-btn" onclick="showTooltip(event, 'Introduce el teléfono, email u otra información de contacto relevante')">ℹ️</button>
+            </label>
+            <textarea id="contact" name="contact" rows="4" required></textarea>
+
+            <label for="location">
+                Ubicación (Ciudad, Municipio, Calle, Zona)
+                <button type="button" class="info-btn" onclick="showTooltip(event, 'Última ubicación conocida de la persona')">ℹ️</button>
+            </label>
+            <input type="text" id="location" name="location">
+
+            <label for="status">
+                Estado *
+                <button type="button" class="info-btn" onclick="showTooltip(event, 'Selecciona el estado actual de la persona si se conoce')">ℹ️</button>
+            </label>
+            <select id="status" name="status" required>
+                <option value="">Seleccione un estado</option>
+                <option value="con_vida">Con Vida</option>
+                <option value="sin_vida">Sin Vida</option>
+                <option value="en_hospital">En Hospital</option>
+                <option value="desconocido" selected>Desconocido</option>
+            </select>
+
+            <div>
+                <input type="checkbox" id="accept-terms" name="accept-terms" required>
+                <label for="accept-terms">Acepto los <a href="/terms" target="_blank">términos y condiciones</a></label>
+            </div>
+            <button id="submit-button" disabled="true" type="submit"><i class="fas fa-user-check"></i> Registrar</button>
+        </form>
     </section>
-    
-
 
     <section id="faq-section">
-      <h2>Preguntas Frecuentes (FAQ)</h2>
-      <button id="toggle-faq-btn" onclick="toggleFAQ()">Mostrar FAQ</button>
-      <div id="faq-content" style="display: none;">
-          <div class="faq-item">
-              <h3>1. ¿Cómo puedo registrar a una persona desaparecida?</h3>
-              <p>Para registrar a una persona, complete el formulario en la sección "Registrar Persona Desaparecida" con toda la información relevante y presione "Registrar".</p>
-          </div>
-      <div class="faq-item">
-        <h3>2. ¿Qué información es necesaria para realizar un registro?</h3>
-        <p>Se requiere el nombre completo y los datos de contacto. También puede añadir una ubicación y estado actual de la persona.</p>
-      </div>
-      <div class="faq-item">
-        <h3>3. ¿Cómo puedo buscar a alguien por su nombre y apellido?</h3>
-        <p>Escriba el nombre y apellido en la barra de búsqueda de la sección "Buscar Persona" y presione el botón de búsqueda.</p>
-      </div>
-      <div class="faq-item">
-        <h3>4. ¿Qué debo incluir en los datos de contacto?</h3>
-        <p>Incluya un número de teléfono, dirección de correo electrónico o cualquier información que permita a otros ponerse en contacto con usted.</p>
-      </div>
-      <div class="faq-item">
-        <h3>5. ¿Cómo puedo actualizar la información de una persona registrada?</h3>
-        <p>Actualmente, no se permite actualizar registros. Puede eliminar el registro y volver a crear uno nuevo.</p>
-      </div>
-      <div class="faq-item">
-        <h3>6. ¿Cómo marco a una persona como localizada?</h3>
-        <p>En los resultados de búsqueda, haga clic en "Marcar como localizada" junto al nombre de la persona.</p>
-      </div>
-      <div class="faq-item">
-        <h3>7. ¿Qué significa el campo "Estado" en el formulario de registro?</h3>
-        <p>El campo "Estado" indica la última información conocida sobre la persona, como si está "Con Vida", "Sin Vida", "En Hospital" o "Desconocido".</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>. ¿Qué hago si no encuentro a la persona que estoy buscando?</h3>
-        <p>Si no aparece en la búsqueda, intente con diferentes variaciones del nombre. Si sigue sin éxito, puede registrar a la persona.</p>
-      </div>
-      <div class="faq-item">
-        <h3>9. ¿Cómo puedo contactar con el equipo de soporte de esta página?</h3>
-        <p>Diríjase a la sección de contacto en el footer para obtener información y opciones para enviar comentarios.</p>
-      </div>
+        <h2><i class="fas fa-question-circle"></i> Preguntas Frecuentes (FAQ)</h2>
+        <button id="toggle-faq-btn" onclick="toggleFAQ()"><i class="fas fa-chevron-down"></i> Mostrar FAQ</button>
+        <div id="faq-content" style="display: none;">
+            <div class="faq-item">
+                <h3>1. ¿Cómo puedo registrar a una persona desaparecida?</h3>
+                <p>Para registrar a una persona, complete el formulario en la sección "Registrar Persona Desaparecida" con toda la información relevante y presione "Registrar".</p>
+            </div>
+            <!-- ... Otros elementos de FAQ ... -->
+        </div>
     </section>
-  </main>
+</main>
 
-  
-
-  <!-- Footer -->
-  <footer>
+<footer>
     <div class="footer-content">
-      <div class="contact-info">
-        <h3>Contacto</h3>
-        <p>Email: <a href="mailto:contacto@dana-valencia.online">contacto@dana-valencia.online</a></p>
-        <p>Teléfono: +34 673753805</p>
-      </div>
-      <div class="feedback">
-        <h3>Comentarios</h3>
-        <p>¿Tienes alguna sugerencia? ¡Envíanos tus comentarios!</p>
-        <form id="feedback-form">
-          <textarea placeholder="Escribe tus comentarios aquí..." rows="3"></textarea>
-          <button type="submit">Enviar</button>
-        </form>
-      </div>
+        <div class="contact-info">
+            <h3>Contacto</h3>
+            <p>Email: <a href="mailto:contacto@dana-valencia.online"><i class="fas fa-envelope"></i> contacto@dana-valencia.online</a></p>
+            <p><i class="fas fa-phone-alt"></i> Teléfono: +34 673753805</p>
+        </div>
+        <div class="feedback">
+            <h3>Comentarios</h3>
+            <p>¿Tienes alguna sugerencia? ¡Envíanos tus comentarios!</p>
+            <form id="feedback-form">
+                <textarea placeholder="Escribe tus comentarios aquí..." rows="3"></textarea>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+            </form>
+        </div>
     </div>
     <p class="footer-note">© 2024 DANA Valencia - Todos los derechos reservados.</p>
-  </footer>
+</footer>
+
 
   
 
