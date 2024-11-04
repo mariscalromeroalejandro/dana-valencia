@@ -44,6 +44,7 @@
     
     <section id="register-section">
       <h2>Registrar Persona Desaparecida</h2>
+      <p>En esta sección puedes registrar una persona desaparecida en nuestra plataforma. Para hacerlo, rellena los siguientes campos:</p>
       <button id="show-register-btn" style="margin-top: 3px;">Registrar Persona</button>
       <form id="register-form" enctype="multipart/form-data">
         
@@ -83,8 +84,12 @@
           <option value="en_hospital">En Hospital</option>
           <option value="desconocido" selected>Desconocido</option>
         </select>
+
+        <!-- Boton de que acepte los terminos -->
+        <input type="checkbox" id="accept-terms" name="accept-terms" required>
+        <label for="accept-terms">Acepto los <a href="/terms" target="_blank">términos y condiciones</a></label>
         
-        <button type="submit">Registrar</button>
+        <button id="submit-button" disabled="true" type="submit">Registrar</button>
       </form>
     </section>
     

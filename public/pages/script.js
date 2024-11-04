@@ -27,3 +27,4 @@ function addSite() {
   // Limpiar los campos del formulario después de añadir el sitio
   document.getElementById("collection-site-form").reset();
 }
+

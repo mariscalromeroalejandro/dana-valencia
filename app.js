@@ -102,6 +102,10 @@ app.get('/politica', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/pages', 'politica.html'));
 });
 
+app.get('/terms', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/pages', 'terms.html'));
+});
+
   
 
 app.listen(PORT, () => {

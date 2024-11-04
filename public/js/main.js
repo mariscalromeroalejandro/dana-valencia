@@ -187,3 +187,15 @@ function toggleFAQ() {
 }
 
 
+//deshabilittar boton de submit si accept-terms no se ha checkeado o el formulario tuene campos obligatorios vacios
+const form = document.getElementById('register-form');
+const acceptTermsCheckbox = document.getElementById('accept-terms');
+const submitButton = document.getElementById('submit-button');
+
+acceptTermsCheckbox.addEventListener('change', () => {
+  if (acceptTermsCheckbox.checked) {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+});

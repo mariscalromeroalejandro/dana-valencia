@@ -216,3 +216,24 @@ button:hover {
     background: #0056b3;
 }
 
+a {
+    color: white;         /* Texto en blanco */
+    text-decoration: underline; /* Subrayado */
+  }
+  
+  a:visited {
+    color: white;         /* Mantener blanco después de hacer clic */
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    color: white;         /* Mantener blanco al pasar el ratón */
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: white;         /* Mantener blanco al hacer clic */
+    text-decoration: underline;
+  }
+  
+  
