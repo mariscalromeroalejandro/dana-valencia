@@ -18,6 +18,10 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
   
       // Limpiar el formulario después de un registro exitoso
       e.target.reset();
+
+      // Ocultar formulario de registro
+      registerSection.style.display = "none";
+      showRegisterBtn.style.display = "block";
     } catch (error) {
       console.error("Error al registrar:", error);
       alert("Ocurrió un error al registrar a la persona.");
@@ -51,9 +55,7 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
   
           personDiv.innerHTML = `
             <div class="person-info">
-                ${person.foto ? 
-                    `<img src="/uploads/${person.foto}" alt="Foto de ${person.nombre}" class="person-photo">` 
-                    : '<div class="placeholder-photo"></div>'}
+                    <img src=/uploads/${person.foto ?? "default.jpg"} alt="Foto de ${person.nombre}" class="person-photo">
                 <div class="details">
                     <p><strong>Nombre:</strong> ${person.nombre}</p>
                     <p><strong>Contacto:</strong> ${person.contacto}</p>
