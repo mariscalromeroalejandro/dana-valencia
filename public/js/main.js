@@ -58,7 +58,6 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
   
           personDiv.innerHTML = `
             <div class="person-info">
-                    <img src=/uploads/default.jpg alt="Foto de ${person.nombre}" class="person-photo">
                 <div class="details">
                     <p><strong>Nombre:</strong> ${person.nombre}</p>
                     <p><strong>Contacto:</strong> ${person.contacto}</p>
