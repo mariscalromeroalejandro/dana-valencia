@@ -187,15 +187,28 @@ function toggleFAQ() {
 }
 
 
-//deshabilittar boton de submit si accept-terms no se ha checkeado o el formulario tuene campos obligatorios vacios
-const form = document.getElementById('register-form');
-const acceptTermsCheckbox = document.getElementById('accept-terms');
-const submitButton = document.getElementById('submit-button');
+document.addEventListener('DOMContentLoaded', function() {
+  const nameField = document.getElementById('name');
+  const contactField = document.getElementById('contact');
+  const statusField = document.getElementById('status');
+  const acceptTermsCheckbox = document.getElementById('accept-terms');
+  const submitButton = document.getElementById('submit-button');
 
-acceptTermsCheckbox.addEventListener('change', () => {
-  if (acceptTermsCheckbox.checked) {
-    submitButton.disabled = false;
-  } else {
-    submitButton.disabled = true;
+  // Función para comprobar si todos los campos requeridos están completos
+  function checkFormValidity() {
+    const isFormValid = 
+      nameField.value.trim() !== '' &&
+      contactField.value.trim() !== '' &&
+      statusField.value !== '' &&
+      acceptTermsCheckbox.checked;
+    
+    // Habilitar o deshabilitar el botón de enviar según la validez del formulario
+    submitButton.disabled = !isFormValid;
   }
+
+  // Agregar event listeners para monitorear cambios en los campos
+  nameField.addEventListener('input', checkFormValidity);
+  contactField.addEventListener('input', checkFormValidity);
+  statusField.addEventListener('change', checkFormValidity);
+  acceptTermsCheckbox.addEventListener('change', checkFormValidity);
 });

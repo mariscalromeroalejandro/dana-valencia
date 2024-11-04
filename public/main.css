@@ -123,6 +123,7 @@ button[type="submit"], button {
   border-radius: 20px; /* Bordes redondeados */
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 5px;
 }
 
 button[type="submit"]:hover {
@@ -325,4 +326,21 @@ a:active {
   color: white;         /* Mantener blanco al hacer clic */
   text-decoration: underline;
 }
+
+button:disabled, .btn-map:disabled, .locate-button:disabled {
+  background: #aaa; /* Color de fondo gris claro */
+  color: #666; /* Texto en gris oscuro */
+  cursor: not-allowed; /* Cambiar el cursor para indicar que está deshabilitado */
+  opacity: 0.7; /* Opacidad para dar un efecto de desactivación */
+  box-shadow: none; /* Sin sombra para indicar desactivación */
+  transition: none; /* Sin transición en estado deshabilitado */
+}
+
+/* Asegúrate de que el hover no cambie el color si está deshabilitado */
+button:disabled:hover, .btn-map:disabled:hover, .locate-button:disabled:hover {
+  background: #aaa; /* Mantener el mismo color de fondo */
+  color: #666; /* Mantener el mismo color de texto */
+}
+
+
 
