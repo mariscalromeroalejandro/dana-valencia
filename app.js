@@ -1,9 +1,4 @@
 const express = require("express");
-const dotenv = require('dotenv');
-const env = process.env.NODE_ENV || 'dev'; // Establece un valor por defecto
-
-// Cargar el archivo de entorno correspondiente
-dotenv.config({ path: `.env.${env}` });
 
 
 const dbService = require("./db/db");

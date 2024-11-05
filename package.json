@@ -1,10 +1,9 @@
 {
   "name": "proyecto2",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "NODE_ENV=dev nodemon -r dotenv/config server.js",
-    "prod": "NODE_ENV=prod node -r dotenv/config server.js"
+    "start" : "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +14,6 @@
     "mysql2": "^3.11.3"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
     "nodemon": "^3.1.7"
   }
 }
