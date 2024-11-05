@@ -12,10 +12,9 @@ let people = [];
     async function getAll() {
         try {
             const response = await fetch('/all');
-            console.log('response', response);
             const data = await response.json();
-            console.log('data', data);
             document.getElementById('searchText').textContent = 'Mostrando todas las personas';
+            console.log(data)
             people = data;
             updateTable();
         } catch (error) {
@@ -29,33 +28,56 @@ document.addEventListener('DOMContentLoaded', async () => {
         await getAll();
     });
 
-    // Manejar el envío del formulario
-    document.getElementById('registerForm').addEventListener('submit', async function (e) {
-        e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+// Manejar el envío del formulario
+document.getElementById('registerForm').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
 
-        // Obtener valores del formulario
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const contact = document.getElementById('contact').value;
-        const lastSeen = document.getElementById('lastSeen').value;
-        const termsAccepted = document.getElementById('termsCheckbox').checked;
+    // Obtener valores del formulario
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const contact = document.getElementById('contact').value;
+    const lastSeen = document.getElementById('lastSeen').value;
+    const termsAccepted = document.getElementById('termsCheckbox').checked;
 
-        // Validar los campos requeridos
-        if (!firstName || !lastName || !contact || !termsAccepted) {
-            alert('Por favor, completa todos los campos requeridos y acepta los términos.');
-            return; // No continuar si falta información
+    // Validar los campos requeridos
+    if (!firstName || !lastName || !contact || !termsAccepted) {
+        alert('Por favor, completa todos los campos requeridos y acepta los términos.');
+        return; // No continuar si falta información
+    }
+
+    // Crear un objeto persona
+    const person = { name: `${firstName} ${lastName}`, contact, lastSeen };
+
+    try {
+        // Enviar los datos al backend
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Especificar el tipo de contenido
+            },
+            body: JSON.stringify(person) // Convertir el objeto a una cadena JSON
+        });
+
+        if (response.ok) {
+            // Si la respuesta es exitosa, puedes agregar la persona al arreglo y actualizar la tabla
+            people.push({
+                nombre: `${firstName} ${lastName}`,
+                contacto: contact,
+                ubicacion: lastSeen
+            }); // Añadir a la lista
+            updateTable(); // Actualizar la tabla
+            this.reset(); // Limpiar el formulario
+        } else {
+            // Manejar error de respuesta
+            const errorData = await response.json();
+            alert(`Error: ${errorData.message}`); // Mostrar mensaje de error
         }
+    } catch (error) {
+        console.error('Error al registrar la persona:', error);
+        alert('Hubo un problema al registrar la persona. Inténtalo de nuevo más tarde.');
+    }
+});
 
-        // Crear un objeto persona
-        const person = { firstName, lastName, contact, lastSeen };
-        people.push(person); // Añadir a la lista
-
-        // Limpiar el formulario
-        this.reset();
-
-        // Actualizar la tabla
-        updateTable();
-    });
 
     // Función para actualizar la tabla de personas
     function updateTable() {

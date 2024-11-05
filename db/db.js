@@ -40,10 +40,10 @@ async function findByName(name) {
   }
 }
 
-async function findByLastSeen(last_seen) {
+async function findByLastSeen(lastSeen) {
   try {
     return new Promise((resolve, reject) => {
-      const query = `SELECT * FROM ${process.env.DB_TABLE} WHERE ubicacion LIKE '%${last_seen}%' ORDER BY nombre ASC`;
+      const query = `SELECT * FROM ${process.env.DB_TABLE} WHERE ubicacion LIKE '%${lastSeen}%' ORDER BY nombre ASC`;
       connection.query(query, (err, results) => {
         if (err) {
           reject(err);
@@ -75,11 +75,11 @@ async function getAll() {
   }
 }
 
-async function insertPerson({ name, contact, last_seen }) {
+async function insertPerson({ name, contact, lastSeen }) {
   try {
     return new Promise((resolve, reject) => {
       const query = `INSERT INTO ${process.env.DB_TABLE} (nombre, contacto, ubicacion) VALUES (?, ?, ?)`;
-      connection.query(query, [name, contact, last_seen], (err, results) => {
+      connection.query(query, [name, contact, lastSeen], (err, results) => {
         if (err) {
           reject(err);
         } else {
