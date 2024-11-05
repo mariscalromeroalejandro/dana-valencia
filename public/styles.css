@@ -1,0 +1,71 @@
+body {
+    background-color: #f8f9fa; /* Color de fondo claro */
+    color: #343a40; /* Color de texto oscuro */
+}
+
+a {
+    margin-left: 4px;
+}
+
+h1 {
+    font-weight: bold; /* Peso de fuente más fuerte para el título */
+}
+
+.card {
+    transition: transform 0.2s; /* Transición para el efecto de hover */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Escala ligeramente la tarjeta al pasar el ratón */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Color personalizado para el botón */
+    border-color: #007bff; /* Borde del botón */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    border-color: #004085; /* Borde más oscuro al pasar el ratón */
+}
+
+footer {
+    background-color: #343a40; /* Color de fondo oscuro para el footer */
+}
+
+footer a {
+    color: #ffffff; /* Color blanco para los enlaces del footer */
+}
+
+footer a:hover {
+    color: #ccc; /* Color más claro al pasar el ratón */
+}
+
+.text-muted {
+    color: #6c757d !important; /* Color gris claro para el texto secundario */
+}
+
+/* Estilo para los íconos */
+.card i {
+    transition: color 0.3s; /* Transición para el color de los íconos */
+}
+
+.card i:hover {
+    color: #0056b3; /* Color azul al pasar el ratón por los íconos */
+}
+
+#requiredStar {
+    color: red;
+    margin-left: 3px;
+}
+
+label {
+    display: flex;
+    flex-direction: line;
+}
+
+form:invalid>#submitButton {
+    pointer-events:none;
+    opacity:0.5;
+    cursor:not-allowed;
+  }
