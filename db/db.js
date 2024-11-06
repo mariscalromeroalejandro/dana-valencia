@@ -1,4 +1,10 @@
 const mysql = require("mysql2");
+const path = require('path')
+const fs = require('fs');
+
+const caCertPath = path.join(__dirname, 'ca-cert.pem');
+const serverCertPath = path.join(__dirname, 'server-cert.pem');
+const serverKeyPath = path.join(__dirname, 'server-key.pem');
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -6,6 +12,11 @@ const connection = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
+  ssl: {
+    ca: fs.readFileSync(caCertPath),
+    cert: fs.readFileSync(serverCertPath),
+    key: fs.readFileSync(serverKeyPath),
+}
 });
 
 connection.connect((err) => {
