@@ -157,7 +157,39 @@ async function insertCentro({ nombre, direccion, tipo, lat, lng }) {
   }
 }
 
+async function deleteCentro(id) {
+  return new Promise((resolve, reject) => {
+    // Verificamos si el ID es válido
+    if (!id) {
+      reject(new Error('El ID es requerido.'));
+      return;
+    }
+
+    const query = `DELETE FROM ${process.env.DB_TABLE_CENTROS} WHERE id = ?`;
+    
+    connection.query(query, [id], (err, results) => {
+      if (err) {
+        // Manejo de errores: rechaza la promesa si hay un error
+        reject(err);
+      } else {
+        // Resolvemos la promesa con los resultados
+        resolve(results);
+      }
+    });
+  });
+}
+
+async function closeConnection() {
+  return new Promise((resolve, reject) => {
+    connection.end((err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    });
+  });
+}
 
 
-
-module.exports = { findByName, findByLastSeen,getAll, insertPerson, deletePerson, getCentros, insertCentro, connection };
+module.exports = { findByName, findByLastSeen,getAll, insertPerson, deletePerson, getCentros, insertCentro, deleteCentro,connection };

@@ -11,6 +11,9 @@ app.use(express.static("public"));
 
 app.use(express.json());
 
+
+
+
 app.post("/find", async (req, res) => {
   if (req.query.name) {
     dbService.findByName(req.query.name)
@@ -82,6 +85,22 @@ app.post('/centros', async (req, res) => {
       res.status(500).send(err);
     });
 })
+
+app.delete('/centros/:id', async (req, res) => {
+  dbService.deleteCentro(req.params.id)
+    .then(() => {
+      res.status(200).send("Centro eliminado correctamente");
+      console.log("Centro eliminado correctamente");
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+      console.error("Error al eliminar el centro:", err);
+    });
+})
+
+app.get("*", (req, res) => {
+  res.redirect("/");
+});
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);

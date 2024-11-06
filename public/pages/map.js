@@ -9,26 +9,55 @@
 
     // Cargar los centros existentes al cargar la página
     fetch('/centros')
-        .then(response => response.json())
-        .then(centros => {
-            centros.forEach(centro => {
-                L.marker([centro.lat, centro.lng])
-                    .addTo(map)
-                    .bindPopup(`<strong>${centro.nombre}</strong><br>${centro.direccion}<br><em>${centro.tipo}</em>`);
+    .then(response => response.json())
+    .then(centros => {
+        centros.forEach(centro => {
+            // Crear el marcador
+            var marker = L.marker([centro.lat, centro.lng]).addTo(map)
+                .bindPopup(`
+                    <strong>${centro.nombre}</strong><br>${centro.direccion}<br><em>${centro.tipo}</em>
+                    <br><button class="delete-marker" data-id="${centro.id}">Eliminar</button>
+                `);
 
-                // Añadir fila a la tabla de centros
-                var row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${centro.nombre}</td>
-                    <td>${centro.direccion}</td>
-                    <td>${centro.tipo}</td>
-                `;
-                document.getElementById('centrosTableBody').appendChild(row);
+            // Añadir la fila a la tabla de centros
+            var row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${centro.nombre}</td>
+                <td>${centro.direccion}</td>
+                <td>${centro.tipo}</td>
+            `;
+            document.getElementById('centrosTableBody').appendChild(row);
+
+            // Manejar el clic en el botón de eliminación
+            marker.getPopup().on('contentupdate', function() {
+                const deleteButton = marker.getPopup().getElement().querySelector('.delete-marker');
+                deleteButton?.addEventListener('click', function() {
+                    // Eliminar el marcador del mapa
+                    map.removeLayer(marker);
+
+                    // Eliminar el centro de la base de datos
+                    fetch(`/centros/${centro.id}`, {
+                        method: 'DELETE',
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Centro eliminado');
+                            // Eliminar la fila correspondiente en la tabla
+                            row.remove();
+                        } else {
+                            alert('Error al eliminar el centro.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error al eliminar el centro:", error);
+                    });
+                });
             });
-        })
-        .catch(error => {
-            console.error("Error al cargar los centros:", error);
         });
+    })
+    .catch(error => {
+        console.error("Error al cargar los centros:", error);
+    });
 
 // Manejar el envío del formulario de búsqueda de ubicación
 document.getElementById('locationSearchForm').addEventListener('submit', function(e) {
