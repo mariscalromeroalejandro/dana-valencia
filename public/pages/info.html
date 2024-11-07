@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Información de Ayuda | Dana Valencia</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="../styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Contenedor Principal -->
+    <div class="container mt-5">
+      <div class="text-center">
+        <h1 class="mb-3 display-4">Información de Ayuda</h1>
+        <p class="lead text-muted">
+          Todo lo que necesitas saber sobre la emergencia.
+        </p>
+        <!-- indicar que ha sido actualizado el 7 de noviembre -->
+        <p class="text-muted">Última actualización: 07/11/2024</p>
+        <!-- boton de volver a inicio / -->
+         <button class="btn btn-primary mb-4" onclick="window.location.href='../index.html'">
+            <i class="fas fa-arrow-left"></i> Volver al inicio</button>
+            </button>
+  
+      </div>
+
+      <div class="row">
+        <!-- Tarjeta Organización -->
+        <div class="col-12 mb-4">
+          <div class="card shadow-lg border-info">
+            <div class="card-body">
+              <!-- Título con icono -->
+              <h5 class="card-title text-primary">
+                <i class="fas fa-users"></i> <strong>Organización</strong>
+              </h5>
+
+              <!-- Texto introductorio -->
+              <p class="card-text text-muted">
+                Actualmente, uno de los desafíos más importantes es la falta de
+                coordinación para manejar eficientemente las ayudas recibidas en
+                las áreas afectadas.
+              </p>
+
+              <!-- Contenido que se colapsa -->
+              <div id="organizacion-collapse" class="collapse">
+                <!-- Explicación sobre el desafío -->
+                <p class="card-text">
+                  La llegada masiva de alimentos, ropa y otros artículos, sin
+                  una adecuada organización, está causando saturación en los
+                  almacenes y centros de acopio, lo que dificulta su
+                  clasificación y distribución.
+                </p>
+
+                <p class="card-text">
+                  Recomendamos informarse correctamente antes de acercarse a los
+                  puntos de recolección en tu localidad, para garantizar que la
+                  ayuda enviada llegue directamente a los necesitados y esté
+                  debidamente organizada:
+                </p>
+
+                <!-- Lista de whatsapps -->
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <strong>Algunos whatsapps para canalizar ayudas:</strong>
+                    <ul>
+                      <li><strong>Utiel:</strong> 659 289 726</li>
+                      <li><strong>Horta Sud:</strong> 682 177 249</li>
+                      <li><strong>Ribera:</strong> 619 975 059</li>
+                      <li><strong>Chiva-Muñol:</strong> 690 027 099</li>
+                      <li><strong>Castellon:</strong> 679 161 664</li>
+                    </ul>
+                  </li>
+
+                  <!-- Puntos de recogida -->
+                  <li class="list-group-item">
+                    <strong>Puntos de recogida en toda España:</strong>
+                    <ul>
+                      <li>
+                        <a
+                          href="https://instagram.com/puntosporladana"
+                          target="_blank"
+                          class="text-decoration-none text-info"
+                          >@puntosporladana</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://ayudadana.com"
+                          target="_blank"
+                          class="text-decoration-none text-info"
+                          >ayudadana.com</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Botón de acción para colapsar/descolapsar el contenido -->
+              <button
+                class="btn btn-primary mt-3"
+                data-bs-toggle="collapse"
+                data-bs-target="#organizacion-collapse"
+                aria-expanded="false"
+                aria-controls="organizacion-collapse"
+              >
+                Más Información
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Voluntarios -->
+        <div class="col-12 mb-4">
+          <div class="card shadow-lg border-info">
+            <div class="card-body">
+              <!-- Título con icono -->
+              <h5 class="card-title text-primary">
+                <i class="fas fa-hands"></i> <strong>Voluntarios</strong>
+              </h5>
+
+              <!-- Texto introductorio -->
+              <p class="card-text text-muted">
+                Los voluntarios desempeñan un papel fundamental en la
+                recuperación de las zonas afectadas. Si decides acudir a alguna
+                de estas áreas para colaborar, toma las siguientes precauciones
+                para protegerte a ti y a los demás:
+              </p>
+
+              <!-- Lista de precauciones -->
+              <div id="precautions-list" class="collapse">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <strong>Salud:</strong> Se recomienda que las personas que
+                    acudan a la ayuda no tengan problemas de salud respiratoria
+                    o inmunodepresión.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Ropa y Equipamiento:</strong> Utiliza ropa de manga
+                    larga y pantalón largo. No dejes brazos ni piernas
+                    descubiertos. Además, usa mascarilla FFP2, protector ocular
+                    y guantes.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Higiene:</strong> Lávate las manos con agua y jabón
+                    tras retirarte los guantes, especialmente antes de los
+                    descansos, antes de comer y al finalizar los turnos de
+                    limpieza. Si no hay jabón, usa geles hidroalcohólicos.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Ropa contaminada:</strong> Lava la ropa que haya
+                    estado en contacto con aguas residuales o de inundación con
+                    agua caliente y detergente antes de volver a usarla. Si no
+                    puedes lavar inmediatamente, guarda la ropa en una bolsa
+                    hermética.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Seguridad:</strong> Desconecta la electricidad y el
+                    gas para evitar incendios, electrocuciones o explosiones.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Atención sanitaria:</strong> Solicita ayuda médica
+                    si sientes malestar o presentas síntomas de infección.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Botón de acción para ocultar o mostrar la lista -->
+              <button
+                class="btn btn-primary mt-3"
+                data-bs-toggle="collapse"
+                data-bs-target="#precautions-list"
+                aria-expanded="false"
+                aria-controls="precautions-list"
+              >
+                Más Información
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Necesidades -->
+        <div class="col-12 mb-4">
+          <div class="card shadow-lg border-info">
+            <div class="card-body">
+              <!-- Título con icono -->
+              <h5 class="card-title text-primary">
+                <i class="fas fa-box"></i> <strong>Necesidades</strong>
+              </h5>
+
+              <!-- Texto introductorio -->
+              <p class="card-text text-muted">
+                Actualmente, las zonas afectadas por la tormenta tienen diversas
+                <strong>necesidades urgentes</strong> de productos esenciales
+                para poder mantener la higiene, seguridad y condiciones mínimas
+                de vida. Si deseas ayudar, estos son algunos de los productos
+                más solicitados:
+              </p>
+
+              <!-- Contenido de las necesidades -->
+              <div id="necesidades-collapse" class="collapse">
+                <!-- Lista de productos necesarios -->
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <strong
+                      >Paños, toallitas y otros productos de higiene:</strong
+                    >
+                    pañales para bebés, pañales para mayores, compresas,
+                    toallitas, otros productos de higiene personal.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Artículos de limpieza:</strong> lejías, bolsas de
+                    basura XXL, cubos, haraganes, fregonas.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Productos de iluminación y protección:</strong>
+                    velas, mechero, power banks con cables adaptadores,
+                    linternas.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Ropa y accesorios:</strong> botas de agua, palas y
+                    rastrillos.
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Otros productos:</strong> comida para perros y
+                    gatos.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Botón de acción para colapsar/descolapsar el contenido -->
+              <button
+                class="btn btn-primary mt-3"
+                data-bs-toggle="collapse"
+                data-bs-target="#necesidades-collapse"
+                aria-expanded="false"
+                aria-controls="necesidades-collapse"
+              >
+                Más Información
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Teléfonos de Emergencia -->
+        <div class="col-12 mb-4">
+          <div class="card shadow-lg border-info">
+            <div class="card-body">
+              <!-- Título con icono -->
+              <h5 class="card-title text-primary">
+                <i class="fas fa-phone-alt"></i>
+                <strong>Teléfonos de Emergencia</strong>
+              </h5>
+
+              <!-- Texto introductorio -->
+              <p class="card-text text-muted">
+                En situaciones de emergencia, es importante contar con los
+                números de contacto adecuados. A continuación, te ofrecemos los
+                principales teléfonos de ayuda:
+              </p>
+
+              <!-- Contenido de los teléfonos de emergencia -->
+              <div id="telefonos-collapse" class="collapse">
+                <!-- Lista de números de teléfono -->
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <strong>Emergencias generales:</strong>
+                    <a href="tel:112" class="text-decoration-none text-info"
+                      >112</a
+                    >
+                    (para situaciones de emergencia general).
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Familias de personas desaparecidas:</strong>
+                    <a
+                      href="tel:900365112"
+                      class="text-decoration-none text-info"
+                      >900 365 112</a
+                    >
+                    (para contacto con familias de personas desaparecidas).
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Botón de acción para colapsar/descolapsar el contenido -->
+              <button
+                class="btn btn-primary mt-3"
+                data-bs-toggle="collapse"
+                data-bs-target="#telefonos-collapse"
+                aria-expanded="false"
+                aria-controls="telefonos-collapse"
+              >
+                Más Información
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Personal Sanitario -->
+        <div class="col-12 mb-4">
+          <div class="card shadow-lg border-info">
+            <div class="card-body">
+              <!-- Título con icono -->
+              <h5 class="card-title text-primary">
+                <i class="fas fa-user-md"></i>
+                <strong>Personal Sanitario</strong>
+              </h5>
+
+              <!-- Texto introductorio -->
+              <p class="card-text text-muted">
+                Se necesita personal sanitario para ayudar a los afectados por
+                la tormenta Dana. Si eres médico, psicólogo, farmacéutico,
+                auxiliar o estudiante, tu ayuda es crucial en estos momentos.
+              </p>
+
+              <!-- Explicación -->
+              <p class="card-text">
+                Si perteneces a este ámbito, te invitamos a inscribirte en el
+                formulario abierto por la Conselleria de Sanidad Universal y
+                Salud Pública de la Generalitat Valenciana.
+              </p>
+
+              <!-- Botón de acción -->
+              <a
+                href="https://bit.ly/sanitariosgva"
+                class="btn btn-primary mt-3"
+                target="_blank"
+                >Inscribirse</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Época de Bulos -->
+        <!-- Tarjeta Época de Bulo -->
+        <div class="col-12 mb-4">
+          <div class="card shadow-lg border-info">
+            <div class="card-body">
+              <!-- Título con icono -->
+              <h5 class="card-title text-primary">
+                <i class="fas fa-bullhorn"></i> <strong>Bulos</strong>
+              </h5>
+
+              <!-- Texto introductorio -->
+              <p class="card-text text-muted">
+                Durante situaciones de emergencia, es común que se difundan
+                <strong>información falsa</strong>. La desinformación puede
+                generar <strong>confusión</strong> y
+                <strong>ansiedad</strong> en la población. Es importante que,
+                antes de compartir cualquier dato, lo
+                <strong>verifiques</strong> adecuadamente.
+              </p>
+
+              <!-- Contenido colapsable -->
+              <div class="collapse" id="collapseBulos">
+                <!-- Consejos sobre la desinformación -->
+                <p class="card-text">
+                  Evita difundir audios, mensajes o rumores sin comprobar su
+                  veracidad. Algunos ejemplos de mensajes engañosos que debes
+                  evitar compartir son:
+                </p>
+
+                <!-- Lista de ejemplos -->
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <strong
+                      >"Tengo un amigo que trabaja en el hospital y me ha dicho
+                      que..."</strong
+                    >
+                  </li>
+                  <li class="list-group-item">
+                    <strong
+                      >"He escuchado que hay un centro de evacuación
+                      en..."</strong
+                    >
+                  </li>
+                  <li class="list-group-item">
+                    <strong
+                      >"Me han dicho que hay una nueva alerta de evacuación,
+                      pero no se sabe dónde..."</strong
+                    >
+                  </li>
+                  <li class="list-group-item">
+                    <strong
+                      >"Mi vecino acaba de ver que están abriendo un nuevo punto
+                      de ayuda en..."</strong
+                    >
+                  </li>
+                  <li class="list-group-item">
+                    <strong
+                      >"Una persona que trabaja en el gobierno me ha comentado
+                      que..."</strong
+                    >
+                  </li>
+                </ul>
+
+                <!-- Mensaje de advertencia -->
+                <p class="card-text text-danger">
+                  Recuerda que la desinformación <strong>no ayuda</strong>.
+                  Concentra tus esfuerzos en colaborar de forma efectiva, y
+                  consulta siempre fuentes oficiales y verificadas antes de
+                  compartir cualquier mensaje.
+                </p>
+              </div>
+
+              <!-- Botón de colapsar -->
+              <button
+                class="btn btn-primary mt-3"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseBulos"
+                aria-expanded="false"
+                aria-controls="collapseBulos"
+              >
+                Más Información
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Otros Portales -->
+        <!-- Tarjeta Otros Portales de Información y Ayuda -->
+        <div class="col-12 mb-4">
+          <div class="card shadow-lg border-info">
+            <div class="card-body">
+              <!-- Título con icono -->
+              <h5 class="card-title text-primary">
+                <i class="fas fa-link"></i>
+                <strong>Otros Portales de Información y Ayuda</strong>
+              </h5>
+
+              <!-- Texto introductorio -->
+              <p class="card-text text-muted">
+                Si necesitas más información o ayuda con un tema específico,
+                puedes acudir a los siguientes sitios web:
+              </p>
+
+              <!-- Lista de portales de información -->
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <a
+                    href="https://tucochedana.es"
+                    target="_blank"
+                    class="text-decoration-none text-info"
+                    ><strong>tucochedana.es</strong></a
+                  >
+                  - Localizar coches con ocupantes que no aparezcan.
+                </li>
+                <li class="list-group-item">
+                  <a
+                    href="https://ayudaterreta.com"
+                    target="_blank"
+                    class="text-decoration-none text-info"
+                    ><strong>ayudaterreta.com</strong></a
+                  >
+                  - Localizar puntos donde se requiere ayuda urgente.
+                </li>
+                <li class="list-group-item">
+                  <a
+                    href="https://danavalenciasos.com"
+                    target="_blank"
+                    class="text-decoration-none text-info"
+                    ><strong>danavalenciasos.com</strong></a
+                  >
+                  - Organizar conductores con voluntarios sin coche (han
+                  agregado más servicios).
+                </li>
+                <li class="list-group-item">
+                  <a
+                    href="https://psicoemergenciasv.org"
+                    target="_blank"
+                    class="text-decoration-none text-info"
+                    ><strong>psicoemergenciasv.org</strong></a
+                  >
+                  - Ayuda psicológica para afectados.
+                </li>
+                <li class="list-group-item">
+                  <a
+                    href="https://instagram.com/perros_desaparecido_dana"
+                    target="_blank"
+                    class="text-decoration-none text-info"
+                    ><strong>@perros_desaparecido_dana</strong></a
+                  >
+                  - Búsqueda de animales perdidos.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="text-center">
+              © 2024 Alejandro Mariscal. Todos los derechos reservados.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="./terms.html" target="_blank" class="text-white"
+                  >Términos y Condiciones</a
+                >
+              </li>
+              <li class="list-inline-item">
+                <a href="./privacy.html" target="_blank" class="text-white"
+                  >Política de Privacidad</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    
+  </body>
+</html>
